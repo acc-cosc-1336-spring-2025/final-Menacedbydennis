@@ -1,12 +1,9 @@
-#write function tests here, don't add input('') statements here!
 import unittest
-
-#follow this example to add questions b, c, and d for testing including their functions
-from src.question_a.question_a import test_config
-
-class Test_Config(unittest.TestCase):
-
-    def test_question_a_config(self):
-        self.assertEqual(True, test_config())
-
+from src.question_a.dna import get_most_likely_ancestor_consensus
+class TestDNAFunctions(unittest.TestCase):
+    def test_get_most_likely_ancestor_consensus(self):
+        # Convert generator to list for comparison
+        result = list(get_most_likely_ancestor_consensus("GATATATGCATATACTT", "ATAT"))
+        expected = [2, 4, 10]
+        self.assertEqual(result, expected)
 
